@@ -9,17 +9,20 @@ void setup() {
 
 void loop() {
   //Serial.println("Hello");
-  if (Serial.available()){
-    command = Serial.readStringUntil('\n')
+  if (Serial.available()) {
+    command = Serial.readStringUntil('\n');
     command.trim();
-    if (command.equals('on')){
+    if (command.equals('on')) {
       digitalWrite(ledPin, HIGH);
-    }else{
-      digitalWrite(ledPin, Low);
-
+    } else if (command.equals('off')) {
+      digitalWrite(ledPin, LOW);
+    } else if (command.equals('blink')) {
+      digitalWrite(2, HIGH);
+      delay(500);
+      digitalWrite(2, LOW);
+      delay(500);
     }
   }
   delay(1000);
   // put your main code here, to run repeatedly:
-
 }
