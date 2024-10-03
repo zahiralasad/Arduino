@@ -14,8 +14,10 @@ void loop() {
     command.trim();
     if (command.equals("on")) {
       digitalWrite(ledPin, HIGH);
+      return 1;
     } else if (command.equals("off")) {
       digitalWrite(ledPin, LOW);
+      return 0;
     } else if (command.equals("blink")) {
       for (int i=0; i<5; i++){
         digitalWrite(2, HIGH);
@@ -23,6 +25,7 @@ void loop() {
         digitalWrite(2, LOW);
         delay(500);
       }
+      return 2;
     }
   }
   delay(1000);
